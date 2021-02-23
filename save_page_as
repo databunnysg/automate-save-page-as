@@ -147,6 +147,41 @@ if [[ ! "${browser_wid}" =~ ${wid_re} ]]; then
     exit 1
 fi
 
+# Activate the ${browser} window, and "press" Page_Down for 30 times
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+xdotool windowactivate "${browser_wid}" --delay 20 key "Page_Down"
+
+
+xdotool windowactivate "${browser_wid}" key --clearmodifiers "Page_Down"
+
 # Activate the ${browser} window, and "press" ctrl+s
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "ctrl+s"
 
