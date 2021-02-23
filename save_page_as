@@ -149,48 +149,68 @@ fi
 
 # Activate the ${browser} window, and "press" Page_Down for 30 times
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-xdotool windowactivate "${browser_wid}" key "Page_Down"
+sleep 1
 
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "Page_Down"
-
+sleep 1
 # Activate the ${browser} window, and "press" ctrl+s
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "ctrl+s"
 
