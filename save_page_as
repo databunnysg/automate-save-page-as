@@ -11,7 +11,7 @@ if ! xdotool --help &>/dev/null; then
 fi
 
 load_wait_time=4
-save_wait_time=8
+save_wait_time=30
 scriptname="$(basename "$0")"
 destination="."
 browser="google-chrome"
