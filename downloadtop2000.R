@@ -3,5 +3,5 @@ ranking<-readRDS("chinesetop500categorized")
 i<-1
 {
   system(paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/channel/",ranking[i,]$channelid,"/videos -b firefox -d /mnt/webdownload/",ranking[i,]$channelid))
-  Sys.sleep(150)
+  Sys.sleep(120)
 }
