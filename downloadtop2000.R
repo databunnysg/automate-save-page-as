@@ -13,7 +13,7 @@ library(jsonlite)
 if(!exists("lconfig"))
 {
   lconfig<-redis_config(host="10.0.1.10",port="7001")
-  l<-hiredis(rconfig)
+  l<-hiredis(lconfig)
   l$AUTH("REDISHOST")
   l$SELECT(5)
   l$PING()
