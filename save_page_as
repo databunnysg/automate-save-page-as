@@ -11,7 +11,7 @@ if ! xdotool --help &>/dev/null; then
 fi
 
 load_wait_time=4
-save_wait_time=30
+save_wait_time=10
 scriptname="$(basename "$0")"
 destination="."
 browser="google-chrome"
@@ -235,7 +235,7 @@ xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
 printf "INFO: Saving web page ...\n" >&2
 devid=10
 # Wait for the file to be completely saved
-sleep ${save_wait_time} + ${pagedown}/${devid}
+sleep ${save_wait_time}
 
 pkill -f firefox
 # Close the browser tab/window (Ctrl+w for KDE, Ctrl+F4 otherwise)
