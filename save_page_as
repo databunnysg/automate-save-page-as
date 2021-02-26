@@ -59,7 +59,7 @@ do
             load_wait_time="$1"
             shift
             ;;
-        --save-wait-time)
+        --savewaittime)
             shift;
             save_wait_time="$1"
             shift
