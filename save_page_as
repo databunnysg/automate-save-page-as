@@ -17,7 +17,7 @@ destination="."
 browser="google-chrome"
 suffix=""
 url=""
-
+pagedownkeypress=10
 function print_usage() {
     printf "\n%s: Open the given url in a browser tab/window, perform 'Save As' operation and close the tab/window.\n\n" "${scriptname}" >&2
     printf "USAGE:\n   %s URL [OPTIONS]\n\n" "${scriptname}" >&2
@@ -49,7 +49,11 @@ do
             browser="$1"
             shift
             ;;
-
+        --pagedownkeypress)
+            shift;
+            pagedownkeypress="$1"
+            shift
+            ;;
         --load-wait-time)
             shift;
             load_wait_time="$1"
@@ -147,70 +151,14 @@ if [[ ! "${browser_wid}" =~ ${wid_re} ]]; then
     exit 1
 fi
 
-# Activate the ${browser} window, and "press" Page_Down for 30 times
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
-xdotool windowactivate "${browser_wid}" key "Page_Down"
-sleep 1
+# Activate the ${browser} window, and "press" Page_Down for 10 times default or from parameter --pagedownkeypress
+for in {1..$pagedownkeypress}
+do
+    xdotool windowactivate "${browser_wid}" key "Page_Down"
+    sleep 1
+done
 
-xdotool windowactivate "${browser_wid}" key --clearmodifiers "Page_Down"
-sleep 1
+
 # Activate the ${browser} window, and "press" ctrl+s
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "ctrl+s"
 
@@ -280,6 +228,8 @@ if [[ ! -z "${destination}" ]]; then
         xdotool type --delay 10 --clearmodifiers "${destination}"
     fi
 fi
+xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
+sleep 1
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
 
 printf "INFO: Saving web page ...\n" >&2
