@@ -17,7 +17,7 @@ destination="."
 browser="google-chrome"
 suffix=""
 url=""
-pagedownkeypress=10
+pagedown=10
 function print_usage() {
     printf "\n%s: Open the given url in a browser tab/window, perform 'Save As' operation and close the tab/window.\n\n" "${scriptname}" >&2
     printf "USAGE:\n   %s URL [OPTIONS]\n\n" "${scriptname}" >&2
@@ -49,9 +49,9 @@ do
             browser="$1"
             shift
             ;;
-        --pagedownkeypress)
+        --pagedown)
             shift;
-            pagedownkeypress="$1"
+            pagedown="$1"
             shift
             ;;
         --load-wait-time)
@@ -151,8 +151,8 @@ if [[ ! "${browser_wid}" =~ ${wid_re} ]]; then
     exit 1
 fi
 
-# Activate the ${browser} window, and "press" Page_Down for 10 times default or from parameter --pagedownkeypress
-for (( i=1; i <= $pagedownkeypress; ++i ))
+# Activate the ${browser} window, and "press" Page_Down for 10 times default or from parameter --pagedown
+for (( i=1; i <= $pagedown; ++i ))
 do
     xdotool windowactivate "${browser_wid}" key "Page_Down"
     sleep 1
