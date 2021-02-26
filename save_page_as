@@ -233,9 +233,9 @@ sleep 1
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
 
 printf "INFO: Saving web page ...\n" >&2
-
+devid=10
 # Wait for the file to be completely saved
-sleep ${save_wait_time}
+sleep ${save_wait_time} + ${pagedown}/${devid}
 
 pkill -f firefox
 # Close the browser tab/window (Ctrl+w for KDE, Ctrl+F4 otherwise)
