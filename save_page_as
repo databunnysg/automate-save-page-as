@@ -152,7 +152,7 @@ if [[ ! "${browser_wid}" =~ ${wid_re} ]]; then
 fi
 
 # Activate the ${browser} window, and "press" Page_Down for 10 times default or from parameter --pagedownkeypress
-for in {1..$pagedownkeypress}
+for i in {1..$pagedownkeypress}
 do
     xdotool windowactivate "${browser_wid}" key "Page_Down"
     sleep 1
