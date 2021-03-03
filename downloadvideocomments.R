@@ -19,8 +19,13 @@ if(!exists("lconfig"))
   l$PING()
 }
 
-videocommentstask<-data.frame(videoid="XE3KWaqrOcY",force=TRUE,pagedown=0,savewaittime=10,stringsAsFactors = FALSE)
-l$RPUSH("youtubevideocomments",toJSON(videocommentstask))
+if(FALSE)
+{
+  #THIS CODE USED FOR GENERATE TEST RECORD
+  videocommentstask<-data.frame(videoid="XE3KWaqrOcY",force=TRUE,pagedown=0,savewaittime=3,stringsAsFactors = FALSE)
+  l$RPUSH("youtubevideocomments",toJSON(videocommentstask))
+}
+
 
 while(TRUE)
 {
