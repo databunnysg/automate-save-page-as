@@ -19,22 +19,22 @@ if(!exists("lconfig"))
   l$PING()
 }
 
-channel<-data.frame(channelid="UCPcF3KTqhD67ADkukx_OeDg",force=TRUE,pagedown=200,savewaittime=200,stringsAsFactors = FALSE)
-l$RPUSH("youtubechannelloadtask",toJSON(channel))
+videocommentstask<-data.frame(videoid="XE3KWaqrOcY",force=TRUE,pagedown=0,savewaittime=10,stringsAsFactors = FALSE)
+l$RPUSH("youtubevideocomments",toJSON(videocommentstask))
 
 while(TRUE)
 {
-  pr<-l$RPOP("youtubechannelloadtask")
+  pr<-l$RPOP("youtubevideocomments")
   if(is.null(pr))
   {
     Sys.sleep(1)
     next
   }
-  channelobj<-fromJSON(pr)
-  for(i in 1:nrow(channelobj))
+  videoobj<-fromJSON(pr)
+  for(i in 1:nrow(videoobj))
   {
-    if(!channelobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",channelobj[i,]$channelid))) next
-    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/channel/",channelobj[i,]$channelid,"/videos -b firefox -d /mnt/webdownload/",channelobj[i,]$channelid," --pagedown ",channelobj[i,]$pagedown," --savewaittime ",channelobj[i,]$savewaittime)
+    if(!videoobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",videoobj[i,]$videoid))) next
+    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid,"/videos -b firefox -d /mnt/webdownload/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
     system(cmd)
     cat(paste(cmd,"\n"))
     #Sys.sleep(2)
