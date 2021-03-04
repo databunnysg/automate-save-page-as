@@ -19,8 +19,12 @@ if(!exists("lconfig"))
   l$PING()
 }
 
-channel<-data.frame(channelid="UCPcF3KTqhD67ADkukx_OeDg",force=TRUE,pagedown=200,savewaittime=200,stringsAsFactors = FALSE)
-l$RPUSH("youtubechannelloadtask",toJSON(channel))
+if(FALSE)
+{
+  channel<-data.frame(channelid="UCzUfFcCFtVoGdzIvk8iGvFw",force=TRUE,pagedown=50,savewaittime=20,stringsAsFactors = FALSE)
+  l$RPUSH("youtubechannelloadtask",toJSON(channel))
+}
+
 
 while(TRUE)
 {
