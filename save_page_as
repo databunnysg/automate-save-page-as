@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo pkill -f firefox
+#sudo pkill -f firefox
 set -e
 set -u
 set -o pipefail
