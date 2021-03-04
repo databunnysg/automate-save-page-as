@@ -41,6 +41,8 @@ while(TRUE)
     if(!videoobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",videoobj[i,]$videoid))) next
     cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid," -b firefox -d /mnt/webdownload/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
     system(cmd)
+    Sys.sleep(1)
+    system("sudo pkill -f firefox")
     cat(paste(cmd,"\n"))
     #Sys.sleep(as.numeric(videoobj[i,]$pagedown)+as.numeric(videoobj[i,]$savewaittime)+3)
   }
