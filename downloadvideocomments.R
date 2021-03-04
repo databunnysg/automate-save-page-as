@@ -39,7 +39,7 @@ while(TRUE)
   for(i in 1:nrow(videoobj))
   {
     if(!videoobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",videoobj[i,]$videoid))) next
-    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid,"/videos -b firefox -d /mnt/webdownload/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
+    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid," -b firefox -d /mnt/webdownload/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
     system(cmd)
     cat(paste(cmd,"\n"))
     #Sys.sleep(2)
