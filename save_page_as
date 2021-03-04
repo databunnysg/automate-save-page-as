@@ -140,7 +140,7 @@ validate_input
 ##############
 
 # Launch ${browser}, and wait for the page to load
-"${browser}" "${url}" &>/dev/null &
+"${browser}" "${url}" &>/dev/null
 sleep ${load_wait_time}
 
 # Find the id for the ${browser} window
