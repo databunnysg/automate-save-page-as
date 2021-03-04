@@ -42,6 +42,6 @@ while(TRUE)
     cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid," -b firefox -d /mnt/webdownload/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
     system(cmd)
     cat(paste(cmd,"\n"))
-    #Sys.sleep(2)
+    Sys.sleep(as.numeric(video[i,]$pagedown)+as.numeric(video[i,]$savewaittime)+3)
   }
 }
