@@ -140,8 +140,7 @@ validate_input
 ##############
 
 # Launch ${browser}, and wait for the page to load
-"${browser}" "${url}" &>/dev/null
-sleep ${load_wait_time}
+"${browser}" "${url}" &>/dev/null & sleep ${load_wait_time}
 
 # Find the id for the ${browser} window
 browser_wid="$(xdotool search --sync --onlyvisible --class "${browser}" | head -n 1)"
