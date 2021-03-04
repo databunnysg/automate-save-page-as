@@ -38,7 +38,7 @@ while(TRUE)
   for(i in 1:nrow(channelobj))
   {
     if(!channelobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",channelobj[i,]$channelid))) next
-    cmd<-paste0("sudo /home/root/automate-save-page-as/save_page_as https://www.youtube.com/channel/",channelobj[i,]$channelid,"/videos -b firefox -d /mnt/webdownload/",channelobj[i,]$channelid," --pagedown ",channelobj[i,]$pagedown," --savewaittime ",channelobj[i,]$savewaittime)
+    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/channel/",channelobj[i,]$channelid,"/videos -b firefox -d /mnt/webdownload/",channelobj[i,]$channelid," --pagedown ",channelobj[i,]$pagedown," --savewaittime ",channelobj[i,]$savewaittime)
     system(cmd)
     cat(paste(cmd,"\n"))
     #Sys.sleep(2)
