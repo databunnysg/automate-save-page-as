@@ -43,6 +43,7 @@ while(TRUE)
     cat(paste(cmd,"\n"))
     Sys.sleep(channelobj[i,]$savewaittime)
     system("sudo pkill -f firefox")
+    system("sudo pkill -9 -f save_page_as")
     #Sys.sleep(2)
   }
 }
