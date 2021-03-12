@@ -10,6 +10,7 @@
 
 library(redux)
 library(jsonlite)
+library(fs)
 if(!exists("lconfig"))
 {
   lconfig<-redis_config(host="10.0.1.10",port="7001")
