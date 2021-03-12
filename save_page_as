@@ -157,7 +157,7 @@ do
     sleep 1
 done
 
-
+sleep 5
 # Activate the ${browser} window, and "press" ctrl+s
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "ctrl+s"
 
