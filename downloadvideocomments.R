@@ -30,24 +30,28 @@ if(FALSE)
 
 while(TRUE)
 {
-  pr<-l$RPOP("youtubevideocomments")
-  if(is.null(pr))
-  {
-    Sys.sleep(1)
-    next
-  }
-  videoobj<-fromJSON(pr)
-  for(i in 1:nrow(videoobj))
-  {
-    if(!videoobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",videoobj[i,]$videoid))) next
-    cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid," -b firefox -d /mnt/webdownload/firefox/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
-    system(cmd)
-    Sys.sleep(5)
-    fi<-file_info(paste0("/mnt/webdownload/firefox/",videoobj[i,]$videoid))
-    if(fi$size>1000000) file_copy(paste0("/mnt/webdownload/firefox/",videoobj[i,]$videoid),paste0("/mnt/webdownload/",videoobj[i,]$videoid))
-    system("sudo pkill -9 -f firefox")
-    system("sudo pkill -9 -f save_page_as")
-    cat(paste(cmd,"\n"))
-    #Sys.sleep(as.numeric(videoobj[i,]$pagedown)+as.numeric(videoobj[i,]$savewaittime)+3)
-  }
+  try(
+    {
+      pr<-l$RPOP("youtubevideocomments")
+      if(is.null(pr))
+      {
+        Sys.sleep(1)
+        next
+      }
+      videoobj<-fromJSON(pr)
+      for(i in 1:nrow(videoobj))
+      {
+        if(!videoobj[i,]$force&&file.exists(paste0("/mnt/webdownload/",videoobj[i,]$videoid))) next
+        cmd<-paste0("/home/root/automate-save-page-as/save_page_as https://www.youtube.com/watch?v=",videoobj[i,]$videoid," -b firefox -d /mnt/webdownload/firefox/",videoobj[i,]$videoid," --pagedown ",videoobj[i,]$pagedown," --savewaittime ",videoobj[i,]$savewaittime)
+        system(cmd)
+        Sys.sleep(5)
+        fi<-file_info(paste0("/mnt/webdownload/firefox/",videoobj[i,]$videoid))
+        if(fi$size>1000000) file_copy(paste0("/mnt/webdownload/firefox/",videoobj[i,]$videoid),paste0("/mnt/webdownload/",videoobj[i,]$videoid))
+        system("sudo pkill -9 -f firefox")
+        system("sudo pkill -9 -f save_page_as")
+        cat(paste(cmd,"\n"))
+        #Sys.sleep(as.numeric(videoobj[i,]$pagedown)+as.numeric(videoobj[i,]$savewaittime)+3)
+      }
+    }
+  )
 }
