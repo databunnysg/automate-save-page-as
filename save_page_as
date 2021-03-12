@@ -161,7 +161,7 @@ done
 # Activate the ${browser} window, and "press" ctrl+s
 xdotool windowactivate "${browser_wid}" key --clearmodifiers "ctrl+s"
 
-sleep 1 # Give 'Save as' dialog box time to show up
+sleep 5 # Give 'Save as' dialog box time to show up
 
 # Resolve the expected title name for save file dialog box (chrome & firefox differ in this regard)
 if [[ "${browser}" == "firefox" ]]; then
@@ -178,7 +178,7 @@ fi
 
 # Fix for Issue #1: Explicitly focus on the "name" field (works on both: gnome, and kde)
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifier "Alt+n"
-
+sleep 5
 # Check if we are using kde
 is_kde=0
 # Don't feel bad if DESKTOP_SESSION env variable is not present
@@ -227,8 +227,9 @@ if [[ ! -z "${destination}" ]]; then
         xdotool type --delay 10 --clearmodifiers "${destination}"
     fi
 fi
+sleep 5
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
-sleep 1
+sleep 2
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
 
 printf "INFO: Saving web page ...\n" >&2
