@@ -229,7 +229,7 @@ if [[ ! -z "${destination}" ]]; then
 fi
 sleep 5
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
-sleep 2
+sleep 5
 xdotool windowactivate "${savefile_wid}" key --delay 20 --clearmodifiers Return
 
 printf "INFO: Saving web page ...\n" >&2
