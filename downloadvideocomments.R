@@ -12,6 +12,8 @@ library(redux)
 library(jsonlite)
 library(fs)
 library(readr)
+library(httr)
+
 if(!exists("lconfig"))
 {
   lconfig<-redis_config(host="10.0.1.10",port="7001")
@@ -57,7 +59,11 @@ while(TRUE)
             {
               fic<-read_file(paste0("/mnt/webdownload/firefox/",tmpfolder,"/",videoobj[i,]$videoid),paste0("/mnt/webdownload/",videoobj[i,]$videoid))
               #fic<-read_file(paste0("Z:/webdownload/firefox/TMP87422/LgPIOHfs74c"))
-              if(grepl("Our systems have detected unusual traffic from your computer network",fic)) system("sudo pkill -9 -f comments")
+              if(grepl("Our systems have detected unusual traffic from your computer network",fic))
+              {
+                r <- POST("https://www.commzgate.net/gateway/SendMsg", body = list(ID = "91610002", Password = l$GET("SMSCONFIG") ,Mobile="6590911474", Type="A", Message=paste("bot triggered"), MACH="true"))
+                Sys.sleep(60*10)
+              }
             }
             dir_delete(paste0("/mnt/webdownload/firefox/",tmpfolder))
             system("sudo pkill -9 -f firefox")
